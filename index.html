@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bill Splitter</title>
+</head>
+<body>
+    <header id="header"> <h1>BILL SPLITTER</h1></header>
+    <section id="form-container"> 
+        <form id="form">
+            <input type= "number" name="bill" placeholder="enter bill">
+            <input type= "number" name="person" placeholder="enter number of persons">
+            <input type= "submit" value="SPLIT"/>
+        </form>
+        <h1 id="bill"></h1>
+    </section>
+    <script>
+       const form = document.getElementById("form");
+       const billDisplay= document.getElementById("bill")
+
+        form.addEventListener("submit", function(e){
+            e.preventDefault();
+            billDisplay.setAttribute("class", "results");
+        let bill = parseFloat(form.bill.value);
+        let persons = parseFloat(form.person.value);
+        let result = bill/persons;
+            return billDisplay.textContent = `A bill of ${persons} persons is : ${result} each`;
+        })
+    </script>
+</body>
+</html>
